@@ -1,3 +1,5 @@
+import { normalizeIdentifier as micromarkUtilNormalizeIdentifier } from "micromark-util-normalize-identifier";
+
 /**
  * @fileoverview Utility Library
  * @author Nicholas C. Zakas
@@ -63,4 +65,12 @@ export function stripHtmlComments(value) {
 		*/
 		match.replace(/[^\r\n]/g, " "),
 	);
+}
+/**
+ * Normalizes a Markdown reference identifier.
+ * @param {string} identifier The identifier to normalize.
+ * @returns {string} The normalized lowercase identifier.
+ */
+export function normalizeIdentifier(identifier) {
+	return micromarkUtilNormalizeIdentifier(identifier).toLowerCase();
 }
